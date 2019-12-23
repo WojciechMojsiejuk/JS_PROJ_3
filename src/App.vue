@@ -1,20 +1,35 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+      <nav>
+          <router-link to="/">home</router-link>
+      </nav>
+      <router-view />
   </div>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
+<!--<script>-->
+<!--// import Song from './views/Search.vue'-->
 
-export default {
-  name: 'app',
-  components: {
-    HelloWorld
-  }
-}
-</script>
+<!--export default {-->
+<!--  name: 'app',-->
+<!--  // components: {-->
+<!--  //   Song-->
+<!--  // },-->
+<!--  data: function() {-->
+<!--    return {-->
+<!--      playlist: []-->
+<!--    }-->
+<!--  },-->
+<!--  methods:-->
+<!--          {-->
+<!--            // addNewSong()-->
+<!--            // {-->
+<!--            //   let newSong = <song;-->
+<!--            //   this.playlist.push()-->
+<!--            // }-->
+<!--          }-->
+<!--}-->
+<!--</script>-->
 
 <style>
 #app {

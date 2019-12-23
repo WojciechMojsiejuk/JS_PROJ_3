@@ -52,3 +52,10 @@ Obowiązkowa podstawa (3): CRUD do pojedynczej tabeli (np. książki, pracownicy
   - IdAutora
   - Imię:
   - Nazwisko:
+
+```
+npm install -g npm
+npm install axios
+npm i lodash.debounce
+npm install --save vue-router
+```
