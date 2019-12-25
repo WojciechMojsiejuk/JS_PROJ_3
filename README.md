@@ -58,4 +58,5 @@ npm install -g npm
 npm install axios
 npm i lodash.debounce
 npm install --save vue-router
+npm i -S vue-youtube-embed
 ```

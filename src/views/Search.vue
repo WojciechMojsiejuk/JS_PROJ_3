@@ -1,25 +1,12 @@
 <template>
-  <div class="wrapper">
-    <h1>HELLO</h1>
-    <div class="searchSong">
-      <label for="search"> Search your favourite songs</label>
-      <input
-        id="search"
-        name="search"
-        v-model="searchValue"
-        @input="handleInput"
-      />
-    </div>
-
-    <div class="searchResults">
-      <ul>
-        <li v-for="result in results" :key="result.id.videoId">
-          <p>
-            {{result.snippet.title}}
-            {{result.snippet.channelTitle}}
-          </p>
-        </li>
-      </ul>
+  <div :class="[{ flexStart: step===1 },'wrapper']">
+    <transition name="fade">
+      <SearchBackground v-if="step === 0"></SearchBackground>
+    </transition>
+    <SearchClaim v-if="step === 0"></SearchClaim>
+    <SearchInput v-model="searchValue" @input="handleInput" :dark="step===1"></SearchInput>
+    <div class="searchResults" v-if="results && !loading && step===1">
+      <SearchResultItem v-for="item in results" :item="item" :key="item.id.videoId"></SearchResultItem>
     </div>
   </div>
 </template>
@@ -27,11 +14,24 @@
 <script>
   import axios from 'axios';
   import debounce from 'lodash.debounce';
+  import SearchInput from "@/components/SearchInput";
+  import SearchBackground from "@/components/SearchBackground";
+  import SearchClaim from "@/components/SearchClaim";
+  import SearchResultItem from "@/components/SearchResultItem";
   const YOUTUBE_API = 'https://www.googleapis.com/youtube/v3/search';
 export default {
   name: 'Search',
+  components:
+          {
+            SearchClaim,
+            SearchBackground,
+            SearchInput,
+            SearchResultItem
+          },
   data() {
     return {
+      loading: false,
+      step: 0,
       searchValue: '',
       results: [],
     };
@@ -42,10 +42,13 @@ export default {
             handleInput: debounce(function()
             {
               let $this = this;
+              $this.loading = true;
               axios.get(`${YOUTUBE_API}?q=${this.searchValue}&part=snippet&key=AIzaSyCofLG8HocAvre4tEmdRye5-jhmvu9f3Qc&type=video&videoCategoryId=10`)
                       .then(function(response){
                         let searchResults = response.data.items;
                         $this.results = searchResults;
+                        $this.loading=false;
+                        $this.step=1;
 
                       }).catch(function(error){
                         // eslint-disable-next-line no-console
@@ -59,23 +62,34 @@ export default {
 
 <style scoped>
 
-.wrapper{
+.wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 0;
   padding: 30px;
-  width: 100%;
+  width: auto;
+  height: 100vh;
+  justify-content: center;
+  color: aliceblue;
 }
 
-  .searchSong{
-  display: flex;
-    flex-direction: column;
-    width: 300px;
+.flexStart{
+  justify-content: flex-start;
+}
+
+  .fade-enter-active, .fade-leave-active{
+    transition: opacity .6s ease;
   }
-  input{
-    height: 50px;
-    border: 0;
-    border-bottom: 1px solid black;
+  .fade-enter, .fade-leave-to{
+    opacity: 0;
   }
+  .searchResults{
+    margin-top: 50px;
+    color: midnightblue;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+  }
+
 </style>
