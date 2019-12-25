@@ -1,9 +1,8 @@
 <template>
     <div class="item">
-        <h1>{{this.songTitle}}</h1>
-        <h2>{{this.channelTitle}}</h2>
-        <p>{{this.published}}</p>
-        <youtube :video-id="videoId"></youtube>
+        <h3>{{this.songTitle}}</h3>
+        <img :src="this.thumbnails.medium.url"/>
+<!--        <youtube :video-id="videoId"></youtube>-->
     </div>
 </template>
 
@@ -23,7 +22,6 @@
                 channelTitle: this.item.snippet.channelTitle,
                 published: this.item.snippet.publishedAt,
                 thumbnails: this.item.snippet.thumbnails,
-                desciption: this.item.snippet.description,
                 videoId: this.item.id.videoId,
             };
         },
