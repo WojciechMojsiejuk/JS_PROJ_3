@@ -36,8 +36,14 @@
     .item{
         position: relative;
         padding: 30px;
+        margin: 1px;
         width: auto;
         height: auto;
+    }
+    .item:hover{
+    outline: 1px solid aliceblue;
+    cursor: pointer;
+    box-shadow: 0 10px 20px -8px rgba(255,255,255,0.3);
     }
 
 </style>

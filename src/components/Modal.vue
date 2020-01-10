@@ -1,31 +1,44 @@
 <template>
-    <div class="outerWrapper">
-        <div class="innerWrapper">
-            <div class="mediaPlayer">
+    <div class="outerWrapper" align="center">
+        <v-card class="innerWrapper" max-height="90%" shaped>
+            <div class="mediaPlayer pa-4">
                 <youtube :video-id="videoId"></youtube>
             </div>
                 <div class="description">
-                    <div class="title">
-                        <h2>
-                            Song title:
-                        </h2>
-                        {{songTitle}}
-                    </div>
-                    <div class="artists">
-                        <h2>
-                            Artist:
-                        </h2>
-                        <v-container fluid>
-                            <v-row>
-                                <v-col cols="12">
+                    <v-form v-model="valid">
+                    <v-container fluid>
+                        <v-row>
+                            <v-col cols="12">
+                            <v-text-field
+                                    required
+                                    v-model="songTitle"
+                                    :rules="songTitleRules"
+                                    hide-details="auto"
+                                    label="Song title:"
+                                    prepend-icon="mdi-music-note-eighth"
+                                    outlined
+                                    rounded
+                                    clearable
+                                    dense
+                            ></v-text-field>
+                            </v-col>
+                        </v-row>
+                        <v-row>
+                            <v-col cols="12">
                             <v-combobox
-                                    v-model="newArtist"
-                                    attach=".artists"
+                                    required
+                                    v-model="newArtists"
+                                    :rules="artistsRules"
+                                    attach=".results"
                                     :items="dbArtists"
                                     :item-text="artistDescription"
                                     :search-input.sync="search"
-                                    label="Combobox"
+                                    label="Artists:"
+                                    deletable-chips
+                                    prepend-icon="mdi-artist"
                                     multiple
+                                    rounded
+                                    clearable
                                     outlined
                                     dense
                                     persistent-hint
@@ -43,13 +56,19 @@
                             </v-combobox>
                             </v-col>
                             </v-row>
-                        </v-container>
-    <!--                    <input v-model="message" placeholder="edit me">-->
+                    </v-container>
+                    </v-form>
                     </div>
-                </div>
+            <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-row justify="space-around">
+                        <v-btn rounded @click="$emit('closeModal')"><v-icon >mdi-close</v-icon>Close</v-btn>
+                        <v-btn rounded :disabled="!valid"><v-icon>mdi-music-note-plus</v-icon> Add song to your playlist</v-btn>
+                </v-row>
+                <v-spacer></v-spacer>
+            </v-card-actions>
+            </v-card>
         </div>
-        <div class="close" @click="$emit('closeModal')"/>
-    </div>
 </template>
 
 <script>
@@ -68,14 +87,23 @@
             },
         data(){
             return{
+                valid: false,
                 songTitle: null,
                 channelTitle: null,
                 published: null,
                 thumbnails: null,
                 videoId: null,
                 dbArtists: [],
-                newArtist: [],
+                newArtists: [],
+                newSong: null,
                 search: null,
+                songTitleRules: [
+                    value => !!value || 'Required.',
+                    value => (value && value.length >= 3) || 'Min 3 characters',
+                ],
+                artistsRules: [
+                    value => value.length>0 || 'Required.',
+                ]
             };
         },
         methods:{
@@ -88,6 +116,7 @@
             this.published = this.item.snippet.publishedAt;
             this.thumbnails = this.item.snippet.thumbnails;
             this.videoId = this.item.id.videoId;
+            this.newArtists.push(this.channelTitle);
             // let $this = this;
             axios.get(serverUrl+'/artists').then(
                 artists => {
@@ -105,65 +134,34 @@
 <style scoped>
 
     .outerWrapper{
-        background: aliceblue;
-        max-width: 80%;
-        height: 80%;
+        max-width: 70%;
+        height: 100%;
         position:fixed;
-        top:0;
-        left:0;
-        right:0;
-        bottom:0;
-        margin:auto;
-        box-shadow: 0 30px 30px -10px rgba(0,0,0,0.3);
+        padding:30px;
     }
     .innerWrapper{
         display: flex;
-        height: 100%;
+        height: auto;
+        padding:20px;
         /*justify-content: center;*/
-        align-items: center;
-        flex-direction: row;
+        flex-direction: column;
     }
     .mediaPlayer{
         display: block;
-        min-width: 50%;
         /*height: auto;*/
         float:left;
-        max-width: 70%;
         position: relative;
+    }
+    @media (max-width:1200px){
+        .mediaPlayer{
+            display: none;
+        }
     }
     .description{
         display: block;
-        max-width: 30%;
         height: auto;
         color: black;
         float:left;
         position: relative;
-    }
-    .close{
-        position: absolute;
-        width: 30px;
-        height: 30px;
-        padding: 30px;
-        right: 0;
-        top: 0;
-        cursor: pointer;
-    }
-    .close::before,
-    .close::after{
-        position: absolute;
-        top:20px;
-        right: 20px;
-        content:'';
-        width: 10px;
-        height: 2px;
-        background: black;
-        display: block;
-    }
-
-    .close::before{
-        transform: rotate(45deg);
-    }
-    .close::after{
-        transform: rotate(-45deg);
     }
 </style>

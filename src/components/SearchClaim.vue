@@ -1,9 +1,10 @@
 <template>
     <div class="claimWrapper">
-    <h1> Playlist </h1>
-    <p>
-        Type your favourite songs from Youtube
-    </p>
+    <h1 class="headline font-weight-light"> Your favourite songs from Youtube</h1>
+    <h2 class="overline font-weight-light">
+        Within your reach...
+    </h2>
+<!--    <h3 class="font-weight-light">start typing</h3>-->
     </div>
 </template>
 

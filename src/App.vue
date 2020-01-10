@@ -1,15 +1,17 @@
 <template>
-  <v-app>
+  <v-app id="app">
     <v-app-bar
       app
-      color="indigo"
+      color="rgba(0,0,0,0.4)"
       dark
     >
-      <div class="d-flex align-center">
-        <router-link to="/">Home</router-link>
-        <router-link to="/playlist">Playlist</router-link>
-        <router-link to="/playlist/add">Add song</router-link>
-      </div>
+      <v-container fluid="true">
+        <v-row justify="start">
+        <v-btn outlined rounded to="/" color="white" class="mx-2">Home</v-btn>
+        <v-btn outlined rounded to="/playlist" color="white" class="mx-2"><v-icon>mdi-playlist-music</v-icon>Playlist</v-btn>
+        <v-btn outlined rounded to="/playlist/add" color="white" class="mx-2"><v-icon>mdi-plus</v-icon>Add song</v-btn>
+        </v-row>
+      </v-container>
 
       <v-spacer></v-spacer>
 
@@ -31,3 +33,8 @@ export default {
   }),
 };
 </script>
+<style>
+  #app{
+    background: rgba(0,0,0,0);
+  }
+</style>

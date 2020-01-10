@@ -1,5 +1,5 @@
 <template>
-    <div class="searchBackground"></div>
+    <div class="background"></div>
 </template>
 
 <script>
@@ -8,8 +8,8 @@
     }
 </script>
 
-<style scoped>
-.searchBackground{
+<style>
+.background{
     position: fixed;
     width: 100%;
     top: 0;
@@ -18,5 +18,6 @@
     background-blend-mode: soft-light;
     background: url("../assets/754283.jpg") no-repeat;
     background-size: cover;
+    /*filter: grayscale(100%);*/
 }
 </style>
