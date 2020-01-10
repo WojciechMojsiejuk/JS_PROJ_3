@@ -77,7 +77,7 @@ export default {
   flex-direction: column;
   align-items: center;
   margin: 0;
-  padding: 30px;
+  /*padding: 30px;*/
   width: 100%;
   height: 100vh;
   justify-content: center;

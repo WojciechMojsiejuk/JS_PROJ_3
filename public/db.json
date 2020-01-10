@@ -1,0 +1,21 @@
+{
+  "artists": [
+    {
+      "id": 1,
+      "name": "Name1"
+    },
+
+    {
+      "id": 2,
+      "name": "Name2"
+    }
+  ],
+
+  "songs": [
+    {
+      "id": 2,
+      "title": "Song2"
+    }
+  ]
+
+}

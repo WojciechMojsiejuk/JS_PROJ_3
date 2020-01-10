@@ -1,51 +1,33 @@
 <template>
-  <div id="app">
-      <nav>
-          <router-link to="/">home</router-link>
-      </nav>
-      <router-view />
-  </div>
+  <v-app>
+    <v-app-bar
+      app
+      color="indigo"
+      dark
+    >
+      <div class="d-flex align-center">
+        <router-link to="/">Home</router-link>
+        <router-link to="/playlist">Playlist</router-link>
+        <router-link to="/playlist/add">Add song</router-link>
+      </div>
+
+      <v-spacer></v-spacer>
+
+    </v-app-bar>
+
+    <v-content>
+      <router-view/>
+    </v-content>
+  </v-app>
 </template>
 
-<!--<script>-->
-<!--// import Song from './views/Search.vue'-->
+<script>
 
-<!--export default {-->
-<!--  name: 'app',-->
-<!--  // components: {-->
-<!--  //   Song-->
-<!--  // },-->
-<!--  data: function() {-->
-<!--    return {-->
-<!--      playlist: []-->
-<!--    }-->
-<!--  },-->
-<!--  methods:-->
-<!--          {-->
-<!--            // addNewSong()-->
-<!--            // {-->
-<!--            //   let newSong = <song;-->
-<!--            //   this.playlist.push()-->
-<!--            // }-->
-<!--          }-->
-<!--}-->
-<!--</script>-->
+export default {
+  name: 'App',
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: aliceblue;
-}
-    body{
-        margin:0;
-        padding: 0;
-        width: 100%;
-    }
-    a
-    {
-        color: aliceblue;
-    }
-</style>
+  data: () => ({
+    //
+  }),
+};
+</script>

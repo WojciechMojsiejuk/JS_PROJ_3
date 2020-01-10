@@ -43,7 +43,7 @@ Obowiązkowa podstawa (3): CRUD do pojedynczej tabeli (np. książki, pracownicy
 - Piosenka:
   - IdPiosenki
   - Tytuł (pobierany z API youtube): 
-  - Liczba wyświetleń (pobierane z API youtube):
+  - Liczba wyświetleń (pobierane z API youtube): X
   - Autorzy (lista):
   - Tekst piosenki:
   - Link do wersji na youtube (wymagane podanie):
@@ -53,10 +53,19 @@ Obowiązkowa podstawa (3): CRUD do pojedynczej tabeli (np. książki, pracownicy
   - Imię:
   - Nazwisko:
 
+### Wymagane do zainstalowania do prawidłowego działania projektu
 ```
 npm install -g npm
 npm install axios
 npm i lodash.debounce
 npm install --save vue-router
 npm i -S vue-youtube-embed
+npm install json-server -g
+
+npm install -g @vue/cli
+vue add vuetify
+```
+### Wymagane do uruchomienia do prawidłowego działania projektu
+```
+json-server songs.json
 ```

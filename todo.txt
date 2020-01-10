@@ -1,0 +1,18 @@
+add new song
+
+- add a x mark to return to first view
+- routing also sets to first view
+- ask about database structure (3 files, songs, authors, songs-authors-linking
+- adding many authors (by a button, maybe?)
+
+
+playlist
+- pull database?
+
+song view
+
+- RWD ? Mobile
+youtube embed
+
+
+vuetify

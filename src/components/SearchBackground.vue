@@ -17,6 +17,6 @@
     height: 100vh;
     background-blend-mode: soft-light;
     background: url("../assets/754283.jpg") no-repeat;
-    background-size: contain;
+    background-size: cover;
 }
 </style>
