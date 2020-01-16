@@ -1,57 +1,39 @@
 {
   "artists": [
     {
-      "id": 1,
-      "name": "Name1"
-    },
-
-    {
-      "id": 2,
-      "name": "Name2"
+      "artistName": "WhamVEVO",
+      "id": 1
     }
   ],
-
   "songs": [
     {
-      "id": 1,
-      "title": "Song1"
-    },
+      "id": "bwNV7TAWN3M",
+      "songTitle": "Wham! - Last Christmas (Official 4K Video)",
+      "publishedDate": "2019-12-13T18:00:11.000Z",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/bwNV7TAWN3M/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/bwNV7TAWN3M/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/bwNV7TAWN3M/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        }
+      }
+    }
+  ],
+  "songArtists": [
     {
-      "id": 2,
-      "title": "Song2"
-    },
-    {
-      "id": 3,
-      "title": "Song3"
-    },
-    {
-      "id": 4,
-      "title": "Song4"
-    },
-    {
-      "id": 5,
-      "title": "Song5"
-    },
-    {
-      "id": 6,
-      "title": "Song6"
-    },
-    {
-      "id": 7,
-      "title": "Song7"
-    },
-    {
-      "id": 8,
-      "title": "Song8"
-    },
-    {
-      "id": 9,
-      "title": "Song9"
-    },
-    {
-      "id": 10,
-      "title": "Song10"
+      "artistId": 1,
+      "songId": "bwNV7TAWN3M",
+      "id": 1
     }
   ]
-
 }
