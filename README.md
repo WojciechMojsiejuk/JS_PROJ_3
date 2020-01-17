@@ -61,9 +61,10 @@ npm i lodash.debounce
 npm install --save vue-router
 npm i -S vue-youtube-embed
 npm install json-server -g
-
 npm install -g @vue/cli
 vue add vuetify
+npm install moment
+npm i --save lodash.orderby
 ```
 ### Wymagane do uruchomienia do prawidłowego działania projektu
 ```

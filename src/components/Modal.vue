@@ -119,7 +119,7 @@
             };
         },
         methods:{
-            artistDescription: item => item.name,
+            artistDescription: item => item.artistName,
             async addToDb() {
                 // //Add song to db
                 try{
@@ -127,6 +127,7 @@
                         id: this.videoId,
                         songTitle: this.songTitle,
                         publishedDate: this.published,
+                        joiningDate: new Date(),
                         thumbnails: this.thumbnails,
                     });
                 }

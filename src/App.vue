@@ -5,7 +5,7 @@
       color="rgba(0,0,0,0.4)"
       dark
     >
-      <v-container fluid="true">
+      <v-container fluid>
         <v-row justify="start">
         <v-btn outlined rounded to="/" color="white" class="mx-2">Home</v-btn>
         <v-btn outlined rounded to="/playlist" color="white" class="mx-2"><v-icon>mdi-playlist-music</v-icon>Playlist</v-btn>

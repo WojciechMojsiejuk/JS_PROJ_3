@@ -13,7 +13,6 @@
                     <v-toolbar-title>
                         Playlist
                     </v-toolbar-title>
-<!--                    <v-toolbar-items>-->
                      <v-container align="center">
                          <v-row align="center">
                              <v-layout align-center >
@@ -31,38 +30,73 @@
                                      </v-layout>
                                  </v-flex>
                              </v-layout>
-
-
                              <v-spacer></v-spacer>
-                                 <v-btn rounded outlined><v-icon>mdi-sort-alphabetical</v-icon> Sort by name</v-btn>
-                             <v-spacer></v-spacer>
-                             <v-btn rounded outlined><v-icon>mdi-sort</v-icon> Sort by date of joining </v-btn>
+
+                             <v-menu
+                                     v-model="sortShow"
+                                     close-on-click
+                                     close-on-content-click
+                                     offset-y
+                             >
+                                 <template v-slot:activator="{ on }">
+                                     <v-btn
+                                             rounded outlined
+                                             v-on="on"
+                                     >
+                                         <v-icon>mdi-sort</v-icon> Sort
+                                     </v-btn>
+                                 </template>
+                                 <v-container class="pa-4">
+                                 <v-row class="ma-1">
+                                     <v-btn rounded outlined @click="sortNameAsc"><v-icon>mdi-sort-alphabetical-ascending</v-icon>by name ascending</v-btn>
+                                 </v-row>
+                                 <v-row class="ma-1">
+                                     <v-btn rounded outlined @click="sortNameDsc"><v-icon>mdi-sort-alphabetical-descending</v-icon>by name descending</v-btn>
+                                 </v-row>
+                                 <v-row class="ma-1">
+                                     <v-btn rounded outlined @click="sortPubDateAsc"><v-icon>mdi-sort-ascending</v-icon> by date of joining ascending </v-btn>
+                                 </v-row>
+                                 <v-row class="ma-1">
+                                     <v-btn rounded outlined @click="sortPubDateDsc"><v-icon>mdi-sort-descending</v-icon> by date of joining descending </v-btn>
+                                 </v-row>
+                                 <v-row class="ma-1">
+                                     <v-btn rounded outlined @click="sortJDateAsc"><v-icon>mdi-sort-ascending</v-icon> by date of publishing ascending </v-btn>
+                                 </v-row>
+                                 <v-row class="ma-1">
+                                     <v-btn rounded outlined @click="sortJDateDsc"><v-icon>mdi-sort-descending</v-icon> by date of publishing descending </v-btn>
+                                 </v-row>
+                                 <v-row class="ma-1">
+                                     <v-btn rounded outlined @click="noSort"><v-icon>mdi-sort-variant-remove</v-icon>Clear</v-btn>
+                                 </v-row>
+                                 </v-container>
+
+                             </v-menu>
                             <v-spacer></v-spacer>
-                             <v-text-field
+                             <v-text-field v-model="search"
                                      append-icon="mdi-magnify"
                              ></v-text-field>
                          </v-row>
-
-                            <!--                                    v-model="ricerca"-->
-                            <!--                                    @keyup="updateData();"-->
-                            <!--                                    label="Cerca"-->
                      </v-container>
-<!--                    </v-toolbar-items>-->
 
                 </v-toolbar>
                 </v-container>
                 <v-list-item-group v-model="playlist" color="primary">
                     <v-list-item
-                            v-for="song in playlist"
+                            v-for="song in sortPlaylist"
                             :key="song.id">
                         <v-list-item-avatar v-if="avatar">
-                            <v-icon>mdi-music-box</v-icon>
-<!--                            <v-img :src="song.avatar"></v-img>-->
+                            <v-img :src="song.thumbnails.default.url"></v-img>
                         </v-list-item-avatar>
                         <v-list-item-content>
-                            <v-list-item-title v-html="song.title"></v-list-item-title>
-                            <v-list-item-subtitle v-if="threeLine">Hello</v-list-item-subtitle>
-<!--                            v-html="item.subtitle"-->
+                            <v-list-item-title v-html="song.songTitle"></v-list-item-title>
+                            <v-list-item-subtitle v-if="threeLine">
+                                <v-row justify="end" class="pa-4">
+                                    Joined: {{song.joiningDate | formatDate}}
+                                </v-row>
+                                <v-row justify="end" class="pa-4">
+                                    Published: {{song.publishedDate | formatDate}}
+                                </v-row>
+                            </v-list-item-subtitle>
                         </v-list-item-content>
                         <v-btn icon><v-icon>mdi-close</v-icon></v-btn>
                     </v-list-item>
@@ -78,6 +112,8 @@
 <script>
     import axios from 'axios'
     import Background from "@/components/Background";
+    // import debounce from "lodash.debounce";
+    import orderBy from 'lodash/orderBy';
     const serverUrl = ' http://localhost:3000';
     export default {
         name: "Playlist",
@@ -90,6 +126,9 @@
                 playlist:[],
                 threeLine: true,
                 avatar: true,
+                search: '',
+                sort: [false, false, false, false, false, false],
+                sortShow: false,
             }
             },
         mounted()
@@ -99,13 +138,83 @@
             axios.get(serverUrl+'/songs').then(songs => $this.playlist=songs.data);
         },
         methods:
+        {
+            remove(song) {
+                let idx = this.playlist.indexOf(song);
+                this.playlist.splice(idx, 1);
+                axios.delete(serverUrl+'/songs/'+idx);
+            },
+            sortNameAsc()
             {
-                remove(song) {
-                    let idx = this.playlist.indexOf(song);
-                    this.playlist.splice(idx, 1);
-                    axios.delete(serverUrl+'/songs/'+idx);
-                },
+                this.noSort();
+                this.sort[0] = true;
+            },
+            sortNameDsc()
+            {
+                this.noSort();
+                this.sort[1] = true;
+            },
+            sortPubDateAsc()
+            {
+                this.noSort();
+                this.sort[2] = true;
+            },
+            sortPubDateDsc()
+            {
+                this.noSort();
+                this.sort[3] = true;
+            },
+            sortJDateAsc()
+            {
+                this.noSort();
+                this.sort[4] = true;
+            },
+            sortJDateDsc()
+            {
+                this.noSort();
+                this.sort[5] = true;
+            },
+            noSort()
+            {
+                this.sort = [false, false, false, false, false, false] ;
+            },
+        },
+        computed: {
+            sortPlaylist(){
+                if(this.sort[0])
+                {
+                    return orderBy(this.playlist, 'songTitle', 'asc');
+                }
+                if(this.sort[1])
+                {
+                    return orderBy(this.playlist, 'songTitle', 'desc');
+                }
+                if(this.sort[2])
+                {
+                    return orderBy(this.playlist, 'joiningDate', 'asc');
+                }
+                if(this.sort[3])
+                {
+                    return orderBy(this.playlist, 'joiningDate', 'desc');
+                }
+                if(this.sort[4])
+                {
+                    return orderBy(this.playlist, 'publishedDate', 'asc');
+                }
+                if(this.sort[5])
+                {
+                    return orderBy(this.playlist, 'publishedDate', 'desc');
+                }
+                return this.playlist;
+
             }
+            // filterSongs : debounce(function()
+            // {
+            //     return this.playlist.filter((item) => {
+            //     item.map(s => s.artistName).toLowerCase().match(this.search)
+            //     })
+            // }, 100),
+        }
 
     }
 </script>

@@ -3,6 +3,42 @@
     {
       "artistName": "WhamVEVO",
       "id": 1
+    },
+    {
+      "artistName": "Sowa",
+      "id": 2
+    },
+    {
+      "artistName": "BlackWhiteWolf",
+      "id": 3
+    },
+    {
+      "artistName": "Alcomindz",
+      "id": 4
+    },
+    {
+      "artistName": "RickAstleyVEVO",
+      "id": 5
+    },
+    {
+      "artistName": "SmashMouthVEVO",
+      "id": 6
+    },
+    {
+      "artistName": "GameChops",
+      "id": 7
+    },
+    {
+      "artistName": "Clay Kramer",
+      "id": 8
+    },
+    {
+      "artistName": "Platina Jazz",
+      "id": 9
+    },
+    {
+      "artistName": "jeffbuckleyVEVO",
+      "id": 10
     }
   ],
   "songs": [
@@ -27,6 +63,227 @@
           "height": 360
         }
       }
+    },
+    {
+      "id": "4bbmOdbYooQ",
+      "songTitle": "Sowa - Dziś w klubie będzie Bang",
+      "publishedDate": "2014-08-30T12:42:07.000Z",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/4bbmOdbYooQ/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/4bbmOdbYooQ/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/4bbmOdbYooQ/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        }
+      }
+    },
+    {
+      "id": "SDFdzLJBH7g",
+      "songTitle": "Chryzantemy Złociste",
+      "publishedDate": "2008-10-09T21:36:04.000Z",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/SDFdzLJBH7g/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/SDFdzLJBH7g/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/SDFdzLJBH7g/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        }
+      }
+    },
+    {
+      "id": "GM94auF5nfo",
+      "songTitle": "06. Spookoo",
+      "publishedDate": "2012-12-24T13:24:08.000Z",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/GM94auF5nfo/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/GM94auF5nfo/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/GM94auF5nfo/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        }
+      }
+    },
+    {
+      "id": "dQw4w9WgXcQ",
+      "songTitle": "Rick Astley - Never Gonna Give You Up (Video)",
+      "publishedDate": "2009-10-25T06:57:33.000Z",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/dQw4w9WgXcQ/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/dQw4w9WgXcQ/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        }
+      }
+    },
+    {
+      "id": "L_jWHffIx5E",
+      "songTitle": "Smash Mouth - All Star (Official Music Video)",
+      "publishedDate": "2009-12-25T08:26:36.000Z",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/L_jWHffIx5E/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/L_jWHffIx5E/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/L_jWHffIx5E/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        }
+      }
+    },
+    {
+      "id": "ub2hm4FQWPM",
+      "songTitle": "Old Town Road (feat K. K. Slider)",
+      "publishedDate": "2019-04-12T20:12:11.000Z",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/ub2hm4FQWPM/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/ub2hm4FQWPM/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/ub2hm4FQWPM/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        }
+      }
+    },
+    {
+      "id": "4oeejNyhLnA",
+      "songTitle": "KK Slider - Pumped Up Kicks (Foster The People)",
+      "publishedDate": "2019-07-31T02:49:32.000Z",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/4oeejNyhLnA/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/4oeejNyhLnA/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/4oeejNyhLnA/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        }
+      }
+    },
+    {
+      "id": "Hg8l1ZAza3I",
+      "songTitle": "Platina Jazz - Devilman (from Devilman)",
+      "publishedDate": "2016-01-08T10:09:04.000Z",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/Hg8l1ZAza3I/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/Hg8l1ZAza3I/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/Hg8l1ZAza3I/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        }
+      }
+    },
+    {
+      "id": "y8AWFf7EAc4",
+      "songTitle": "Jeff Buckley - Hallelujah (Official Video)",
+      "publishedDate": "2009-10-25T20:38:51.000Z",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/y8AWFf7EAc4/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/y8AWFf7EAc4/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/y8AWFf7EAc4/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        }
+      }
+    },
+    {
+      "id": "GdzrrWA8e7A",
+      "songTitle": "Zelda &amp; Chill",
+      "publishedDate": "2018-09-14T13:43:18.000Z",
+      "joiningDate": "2020-01-17T11:37:18.202Z",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/GdzrrWA8e7A/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/GdzrrWA8e7A/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/GdzrrWA8e7A/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        }
+      }
     }
   ],
   "songArtists": [
@@ -34,6 +291,55 @@
       "artistId": 1,
       "songId": "bwNV7TAWN3M",
       "id": 1
+    },
+    {
+      "artistId": 2,
+      "songId": "4bbmOdbYooQ",
+      "id": 2
+    },
+    {
+      "artistId": 3,
+      "songId": "SDFdzLJBH7g",
+      "id": 3
+    },
+    {
+      "artistId": 4,
+      "songId": "GM94auF5nfo",
+      "id": 4
+    },
+    {
+      "artistId": 5,
+      "songId": "dQw4w9WgXcQ",
+      "id": 5
+    },
+    {
+      "artistId": 6,
+      "songId": "L_jWHffIx5E",
+      "id": 6
+    },
+    {
+      "artistId": 7,
+      "songId": "ub2hm4FQWPM",
+      "id": 7
+    },
+    {
+      "artistId": 8,
+      "songId": "4oeejNyhLnA",
+      "id": 8
+    },
+    {
+      "artistId": 9,
+      "songId": "Hg8l1ZAza3I",
+      "id": 9
+    },
+    {
+      "artistId": 10,
+      "songId": "y8AWFf7EAc4",
+      "id": 10
+    },
+    {
+      "songId": "GdzrrWA8e7A",
+      "id": 11
     }
   ]
 }
