@@ -61,12 +61,4 @@
     input:hover{
         cursor: pointer;
     }
-    /*.dark*/
-    /*{*/
-    /*    color:midnightblue;*/
-    /*    border-bottom-color: midnightblue;*/
-    /*}*/
-    /*.dark:focus{*/
-    /*    box-shadow: 0 10px 20px -8px rgba(25,25,112,0.3);*/
-    /*}*/
 </style>

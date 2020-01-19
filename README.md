@@ -65,6 +65,7 @@ npm install -g @vue/cli
 vue add vuetify
 npm install moment
 npm i --save lodash.orderby
+npm i --save lodash.intersection
 ```
 ### Wymagane do uruchomienia do prawidłowego działania projektu
 ```

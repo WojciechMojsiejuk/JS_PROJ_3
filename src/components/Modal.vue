@@ -30,7 +30,6 @@
                                     required
                                     v-model="newArtists"
                                     :rules="artistsRules"
-                                    attach=".artistSearch"
                                     :items="dbArtists"
                                     :item-text="artistDescription"
                                     :search-input.sync="search"
@@ -129,6 +128,7 @@
                         publishedDate: this.published,
                         joiningDate: new Date(),
                         thumbnails: this.thumbnails,
+                        lyrics: "",
                     });
                 }
                 catch(e){
@@ -139,7 +139,7 @@
                 }
                 for(let artist of this.newArtists)
                 {
-                    if(this.dbArtists.map(s => s.artistName).includes(artist)){
+                    if(this.dbArtists.map(s => s.artistName).includes(artist.artistName)){
                         //linking artists with songs
                         try{
                             await axios.post(serverUrl+'/songArtists', {

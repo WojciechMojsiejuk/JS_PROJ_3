@@ -4,6 +4,7 @@ import router from "./router";
 import VueYouTubeEmbed from 'vue-youtube-embed'
 import vuetify from './plugins/vuetify';
 import moment from 'moment'
+import Navigation from "@/components/Navigation";
 
 Vue.use(VueYouTubeEmbed);
 Vue.filter('formatDate', function(value) {
@@ -12,6 +13,8 @@ Vue.filter('formatDate', function(value) {
   }
 });
 Vue.config.productionTip = false;
+
+Vue.component('menuNavigation', Navigation);
 
 new Vue({
   router,

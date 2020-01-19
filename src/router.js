@@ -2,7 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Search from './views/Search';
 import Playlist from "./views/Playlist";
-import Home from "./views/Home"
+import Artists from "./views/Artists";
 Vue.use(Router);
 
 export default new Router({
@@ -19,9 +19,9 @@ export default new Router({
             component: Playlist,
         },
         {
-            path: '/',
-            name: 'Home',
-            component: Home,
+            path: '/artists',
+            name: 'artists',
+            component: Artists,
         },
     ]
 });

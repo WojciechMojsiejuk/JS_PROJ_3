@@ -4,7 +4,6 @@
     <h2 class="overline font-weight-light">
         Within your reach...
     </h2>
-<!--    <h3 class="font-weight-light">start typing</h3>-->
     </div>
 </template>
 
