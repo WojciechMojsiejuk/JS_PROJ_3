@@ -1,24 +1,16 @@
 {
   "artists": [
     {
-      "artistName": "new",
-      "id": 2
-    },
-    {
-      "artistName": "ILY",
+      "artistName": "VEVO",
       "id": 3
-    },
-    {
-      "artistName": "Cardi B",
-      "id": 4
     }
   ],
   "songs": [
     {
       "id": "bwNV7TAWN3M",
-      "songTitle": "This Christmas",
+      "songTitle": "Wham! - Last Christmas (Official 4K Video)",
       "publishedDate": "2019-12-13T18:00:11.000Z",
-      "joiningDate": "2020-01-19T19:54:11.535Z",
+      "joiningDate": "2020-01-21T17:56:18.442Z",
       "thumbnails": {
         "default": {
           "url": "https://i.ytimg.com/vi/bwNV7TAWN3M/default.jpg",
@@ -36,50 +28,26 @@
           "height": 360
         }
       },
-      "lyrics": "Last krismas aj gejw ju maj hart"
-    },
-    {
-      "id": "k5wdrM70rzg",
-      "songTitle": "ILY - A YA LIL - أ يا ليل ( Music Video )",
-      "publishedDate": "2020-01-19T18:42:37.000Z",
-      "joiningDate": "2020-01-19T19:54:19.330Z",
-      "thumbnails": {
-        "default": {
-          "url": "https://i.ytimg.com/vi/k5wdrM70rzg/default.jpg",
-          "width": 120,
-          "height": 90
-        },
-        "medium": {
-          "url": "https://i.ytimg.com/vi/k5wdrM70rzg/mqdefault.jpg",
-          "width": 320,
-          "height": 180
-        },
-        "high": {
-          "url": "https://i.ytimg.com/vi/k5wdrM70rzg/hqdefault.jpg",
-          "width": 480,
-          "height": 360
-        }
-      },
       "lyrics": ""
     },
     {
-      "id": "3y-O-4IL-PU",
-      "songTitle": "Cardi B &amp; Bruno Mars - Please Me (Official Video)",
-      "publishedDate": "2019-03-01T14:57:46.000Z",
-      "joiningDate": "2020-01-19T19:54:26.037Z",
+      "id": "pIgZ7gMze7A",
+      "songTitle": "Wham! - Wake Me Up Before You Go-Go (Official Video)",
+      "publishedDate": "2009-10-25T06:52:46.000Z",
+      "joiningDate": "2020-01-21T17:58:41.766Z",
       "thumbnails": {
         "default": {
-          "url": "https://i.ytimg.com/vi/3y-O-4IL-PU/default.jpg",
+          "url": "https://i.ytimg.com/vi/pIgZ7gMze7A/default.jpg",
           "width": 120,
           "height": 90
         },
         "medium": {
-          "url": "https://i.ytimg.com/vi/3y-O-4IL-PU/mqdefault.jpg",
+          "url": "https://i.ytimg.com/vi/pIgZ7gMze7A/mqdefault.jpg",
           "width": 320,
           "height": 180
         },
         "high": {
-          "url": "https://i.ytimg.com/vi/3y-O-4IL-PU/hqdefault.jpg",
+          "url": "https://i.ytimg.com/vi/pIgZ7gMze7A/hqdefault.jpg",
           "width": 480,
           "height": 360
         }
@@ -89,19 +57,9 @@
   ],
   "songArtists": [
     {
-      "artistId": 2,
-      "songId": "bwNV7TAWN3M",
-      "id": 2
-    },
-    {
       "artistId": 3,
-      "songId": "k5wdrM70rzg",
+      "songId": "bwNV7TAWN3M",
       "id": 3
-    },
-    {
-      "artistId": 4,
-      "songId": "3y-O-4IL-PU",
-      "id": 4
     }
   ]
 }

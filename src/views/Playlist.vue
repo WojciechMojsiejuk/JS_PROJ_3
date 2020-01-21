@@ -414,7 +414,8 @@
                     if(!intersect.map(s => s.artistName).includes(oldArtist.artistName))
                     {
                         try{
-                            await axios.delete(serverUrl+'/artists/'+oldArtist.id);
+                            let linkingToDelete = this.songArtists.filter((item) => {return item.artistId === oldArtist.id}).filter((item) => {return item.songId === this.songToFocus.id})
+                            await axios.delete(serverUrl+'/songArtists/'+linkingToDelete.id);
                         }
                         catch(e)
                         {
