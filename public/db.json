@@ -7,6 +7,10 @@
     {
       "artistName": "asd",
       "id": 2
+    },
+    {
+      "artistName": "Coldplay",
+      "id": 3
     }
   ],
   "songs": [
@@ -57,6 +61,30 @@
         }
       },
       "lyrics": ""
+    },
+    {
+      "id": "7HmiFxqdgq4",
+      "songTitle": "Coldplay - Everyday Life (Official Video)",
+      "publishedDate": "2019-12-09T18:00:13.000Z",
+      "joiningDate": "2020-01-22T10:30:00.899Z",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/7HmiFxqdgq4/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/7HmiFxqdgq4/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/7HmiFxqdgq4/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        }
+      },
+      "lyrics": ""
     }
   ],
   "songArtists": [
@@ -74,6 +102,11 @@
       "artistId": 1,
       "songId": "WwbqCBLMbno",
       "id": 3
+    },
+    {
+      "artistId": 3,
+      "songId": "7HmiFxqdgq4",
+      "id": 4
     }
   ]
 }

@@ -139,11 +139,31 @@
                 }
                 for(let artist of this.newArtists)
                 {
-                    if(this.dbArtists.map(s => s.artistName).includes(artist.artistName)){
+                    if(artist.artistName != undefined)
+                    {
                         //linking artists with songs
                         try{
                             await axios.post(serverUrl+'/songArtists', {
                                 artistId: artist.id,
+                                songId: this.videoId});
+                        }
+                        catch(e)
+                        {
+                            // eslint-disable-next-line no-console
+                            console.log('songArtist error', e);
+                            this.artistSongError=true;
+                            return;
+                        }
+                    }
+                    else if(this.dbArtists.map(s => s.artistName).includes(artist))
+                    {
+                        //this name is already in DB, we need to find this artist, and add linking
+                        let searchedArtist = this.dbArtists.find((item) => {return item.artistName === artist});
+                        // NEED TO CHECK IF LINKING ALREADY EXISTS
+                        //linking artists with songs
+                        try{
+                            await axios.post(serverUrl+'/songArtists', {
+                                artistId: searchedArtist.id,
                                 songId: this.videoId});
                         }
                         catch(e)
