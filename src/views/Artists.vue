@@ -116,7 +116,7 @@
                         <v-btn
                                 color="error"
                                 text
-                                @click="remove(artistsToDelete)"
+                                @click.prevent="remove(artistsToDelete,showArtistSongs(artistsToDelete))"
                         ><v-icon>mdi-delete</v-icon>
                             Remove
                         </v-btn>
@@ -200,10 +200,15 @@
                 return _artistSongs;
             },
             async remove(artist, songs) {
-                await axios.delete(serverUrl+'/artists/'+artist.id);
                 for(let song of songs){
-                    await axios.delete(serverUrl+'/songs/'+song.id);
+                    let linking = this.songArtists.filter((item) => {return item.songId == song.id});
+                    if(linking.length==1)
+                    {
+                        // eslint-disable-next-line no-console
+                        await axios.delete(serverUrl+'/songs/'+song.id);
+                    }
                 }
+                await axios.delete(serverUrl+'/artists/'+artist.id);
             },
         },
         computed: {
