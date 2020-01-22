@@ -408,13 +408,44 @@
                 });
                 let oldArtists = this.showSongArtists(this.songToFocus);
                 let intersect = intersection(oldArtists, this.newArtists);
+                // eslint-disable-next-line no-console
+                console.log("oldArtists:" + oldArtists);
+                // eslint-disable-next-line no-console
+                console.log("intersect:" + intersect);
                 //artists which were originally but are not longer need to be deleted
                 for (let oldArtist of oldArtists)
                 {
-                    if(!intersect.map(s => s.artistName).includes(oldArtist.artistName))
+                    //no intersect, all connection to old artists needs to be deleted
+                    if(!intersect.length)
+                    {
+                        // eslint-disable-next-line no-console
+                        console.log("Empty intersect")
+
+                        try{
+                            let oldArtistSongs = this.songArtists.filter((item) => {return item.artistId === oldArtist.id});
+                            let linkingToDelete = oldArtistSongs.find((item) => {return item.songId === this.songToFocus.id});
+                            await axios.put(serverUrl+'/songArtists/'+linkingToDelete.id, {
+                                artistId: '',
+                                songId: ''
+                            });
+                            await axios.delete(serverUrl+'/songArtists/'+linkingToDelete.id);
+                        }
+                        catch(e)
+                        {
+                            // eslint-disable-next-line no-console
+                            console.log('Artist delete error', e);
+                            this.dbError=true;
+                            return;
+                        }
+                    }
+                    else if(!intersect.map(s => s.artistName).includes(oldArtist.artistName))
                     {
                         try{
-                            let linkingToDelete = this.songArtists.filter((item) => {return item.artistId === oldArtist.id}).filter((item) => {return item.songId === this.songToFocus.id})
+                            let oldArtistSongs = this.songArtists.filter((item) => {return item.artistId === oldArtist.id});
+                            let linkingToDelete = oldArtistSongs.find((item) => {return item.songId === this.songToFocus.id});
+                            await axios.put(serverUrl+'/songArtists/'+linkingToDelete.id, {
+                                id:'ToDelete'
+                            });
                             await axios.delete(serverUrl+'/songArtists/'+linkingToDelete.id);
                         }
                         catch(e)
@@ -427,44 +458,60 @@
 
                     }
                 }
-                //artists which were not originally but now are need to be added to DB if they are not there already
+                // artists which were not originally but now are need to be added to DB if they are not there already
                 for(let newArtist of this.newArtists)
                 {
-                    if(!intersect.map(s => s.artistName).includes(newArtist.artistName)){
+                    // eslint-disable-next-line no-console
+                    console.log("New artist: "+newArtist);
+                    if(newArtist.artistName != undefined)
+                    {
+                        //artist is in a db
                         if(this.artists.map(s => s.artistName).includes(newArtist.artistName))
                         {
-                            this.artistId = newArtist.id;
-                        }
-                        else{
-                            try{
-                                let response = await axios.post(serverUrl+'/artists', {
-                                    artistName: newArtist.artistName
-                                });
-                                this.artistId = await response.data.id;
+                            let newArtistSongs = this.songArtists.filter((item) => {return item.artistId === newArtist.id});
+                            let linking = newArtistSongs.find((item) => {return item.songId === this.songToFocus.id});
+                            //no linking? need to create new linking: no need to create, we can continue
+                            if(linking==undefined)
+                            {
+                                this.artistId = newArtist.id;
                             }
-                        catch (e) {
-                                // eslint-disable-next-line no-console
-                                console.log('Artist error', e);
-                                this.dbError=true;
-                                return;
+                            else
+                            {
+                                continue;
                             }
                         }
+                    }
+                    else{
+                        // eslint-disable-next-line no-console
+                        console.log("Nowy artysta");
                         try{
-                            //linking artists with songs
-                            await axios.post(serverUrl+'/songArtists', {
-                                artistId: this.artistId,
-                                songId: this.songToFocus.id
-                            })
+                            let response = await axios.post(serverUrl+'/artists', {
+                                artistName: newArtist
+                            });
+                            this.artistId = await response.data.id;
                         }
                         catch (e) {
-
                             // eslint-disable-next-line no-console
-                            console.log('songArtist', e);
+                            console.log('Artist error', e);
                             this.dbError=true;
                             return;
                         }
                     }
-                }
+                    try{
+                        //linking artists with songs
+                        await axios.post(serverUrl+'/songArtists', {
+                            artistId: this.artistId,
+                            songId: this.songToFocus.id
+                        })
+                    }
+                    catch (e) {
+
+                        // eslint-disable-next-line no-console
+                        console.log('songArtist', e);
+                        this.dbError=true;
+                        return;
+                    }
+                    }
             }
         },
         computed: {
