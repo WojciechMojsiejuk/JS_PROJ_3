@@ -23,5 +23,10 @@ export default new Router({
             name: 'artists',
             component: Artists,
         },
+        {
+            path: '/',
+            name: 'Home',
+            component: Playlist,
+        },
     ]
 });

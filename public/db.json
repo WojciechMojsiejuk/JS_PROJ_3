@@ -11,6 +11,10 @@
     {
       "artistName": "Coldplay",
       "id": 3
+    },
+    {
+      "artistName": "WhamVEVO",
+      "id": 4
     }
   ],
   "songs": [
@@ -36,7 +40,7 @@
           "height": 360
         }
       },
-      "lyrics": ""
+      "lyrics": "aasd\nasdasd\nasddasdadasff\nasfafasfsafafasfsasf\nasfafaf\naasd\nasdasd\nasddasdadasff\nasfafasfsafafasfsasf\nasfafaf\naasd\nasdasd\nasddasdadasff\nasfafasfsafafasfsasf\nasfafaf\naasd\nasdasd\nasddasdadasff\nasfafasfsafafasfsasf\nasfafaf\naasd\nasdasd\nasddasdadasff\nasfafasfsafafasfsasf\nasfafaf\naasd\nasdasd\nasddasdadasff\nasfafasfsafafasfsasf\nasfafaf\naasd\nasdasd\nasddasdadasff\nasfafasfsafafasfsasf\nasfafaf\naasd\nasdasd\nasddasdadasff\nasfafasfsafafasfsasf\nasfafaf"
     },
     {
       "id": "WwbqCBLMbno",
@@ -85,6 +89,54 @@
         }
       },
       "lyrics": ""
+    },
+    {
+      "id": "E8gmARGvPlI",
+      "songTitle": "Wham! - Last Christmas (Official Video)",
+      "publishedDate": "2009-10-25T18:58:28.000Z",
+      "joiningDate": "2020-01-22T12:05:14.122Z",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/E8gmARGvPlI/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/E8gmARGvPlI/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/E8gmARGvPlI/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        }
+      },
+      "lyrics": ""
+    },
+    {
+      "id": "pIgZ7gMze7A",
+      "songTitle": "Wham! - Wake Me Up Before You Go-Go (Official Video)",
+      "publishedDate": "2009-10-25T06:52:46.000Z",
+      "joiningDate": "2020-01-22T12:05:48.644Z",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/pIgZ7gMze7A/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/pIgZ7gMze7A/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/pIgZ7gMze7A/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        }
+      },
+      "lyrics": ""
     }
   ],
   "songArtists": [
@@ -107,6 +159,16 @@
       "artistId": 3,
       "songId": "7HmiFxqdgq4",
       "id": 4
+    },
+    {
+      "artistId": 4,
+      "songId": "E8gmARGvPlI",
+      "id": 5
+    },
+    {
+      "artistId": 1,
+      "songId": "pIgZ7gMze7A",
+      "id": 6
     }
   ]
 }

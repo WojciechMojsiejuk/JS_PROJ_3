@@ -25,7 +25,7 @@
                              <v-layout  class="d-inline-flex">
                                  <v-flex xs12 md6 lg3>
                                      <v-layout column align-center>
-                                         <v-switch v-model="avatar" class="ma-0" label="Avatar" align="center"></v-switch>
+                                         <v-switch v-model="avatar" class="ma-0" label="Cover" align="center"></v-switch>
                                      </v-layout>
                                  </v-flex>
                              </v-layout>
@@ -156,109 +156,93 @@
                     </v-dialog>
 <!--                    Details dialog-->
                     <v-dialog v-if="songToFocus" v-model="detailsDialog" hide-overlay transition="dialog-bottom-transition" persistent>
-                        <v-container fluid style="background: aliceblue; max-height:80vh; overflow-y: hidden">
-                            <v-layout row wrap >
-                                <v-row>
-                                    <v-col class="overflow-auto" style="height:50ch;">
-                                        <v-form v-model="valid">
-                                        <v-row fluid style="width: 100%;" class="px-4">
-                                            <v-col align="center">
-                                                <v-text-field
-                                                        v-model="songTitle"
-                                                        :rules="songTitleRules"
-                                                        outlined
-                                                        rounded
-                                                        prepend-icon="mdi-music"
-                                                        label="Song Title"
-                                                        :readonly="!editSong"
-                                                        :clearable="editSong"
-                                                        clear-icon="mdi-close"
+                        <v-container fluid style="background: aliceblue" scrollable fill-height>
+                            <v-row>
+                                <!--                        Song Title-->
+                                <v-col class="px-8" align="center" xs="12" sm="12" md="12" lg="12" xl="12" >
+                                    <v-form v-model="valid">
+                                        <v-text-field
+                                                v-model="songTitle"
+                                                :rules="songTitleRules"
+                                                outlined
+                                                rounded
+                                                prepend-icon="mdi-music"
+                                                label="Song Title"
+                                                :readonly="!editSong"
+                                                :clearable="editSong"
+                                                clear-icon="mdi-close"
 
-                                                >
+                                        >
 
-                                                </v-text-field>
-                                            </v-col>
-                                        </v-row>
-                                        <v-row class="px-4 mr-4 title font-weight-light">
-                                            <v-col align="end">
-                                                <v-combobox
-                                                        v-model="newArtists"
-                                                        :rules="artistsRules"
-                                                        :items="artists"
-                                                        :item-text="artistDescription"
-                                                        :search-input.sync="searchArtists"
-                                                        label="Artists:"
-                                                        deletable-chips
-                                                        prepend-icon="mdi-artist"
-                                                        multiple
-                                                        rounded
-                                                        :clearable="editSong"
-                                                        :disabled="!editSong"
-                                                        outlined
-                                                        dense
-                                                        persistent-hint
-                                                        small-chips
-                                                >
-                                                    <template v-slot:no-data v-if="editSong">
-                                                        <v-list-item>
-                                                            <v-list-item-content>
-                                                                <v-list-item-title>
-                                                                    No results matching "<strong>{{ search }}</strong>". Press <kbd>enter</kbd> to create a new one
-                                                                </v-list-item-title>
-                                                            </v-list-item-content>
-                                                        </v-list-item>
-                                                    </template>
-                                                </v-combobox>
-<!--                                                <span class="ml-2" v-for="artists in showSongArtists(songToFocus)" :key="artists.id">-->
-<!--                                            {{artists.artistName}}-->
-<!--                                            </span>-->
-                                            </v-col>
-                                        </v-row>
-                                        <v-row>
-                                            <v-col align="center" class="px-12">
-                                                <h2>Lyrics:</h2>
-                                                <v-textarea
-                                                        outlined
-                                                        placeholder="Put song lyrics here..."
-                                                        full-width
-                                                        auto-grow
-                                                        v-model="songLyrics"
-                                                        prepend-inner-icon="mdi-file-music"
-                                                        rounded
-                                                        label="Song Lyrics"
-                                                        :readonly="!editSong"
-                                                        :clearable="editSong"
-                                                        clear-icon="mdi-close"
+                                        </v-text-field>
+                                    </v-form>
+                                </v-col>
+                                <v-col class="px-4 xs12 sm12 md4 lg6" justify="center">
+                                    <v-row>
+                                        <youtube :video-id="songToFocus.id" fitParent resize></youtube>
+                                    </v-row>
+                                    <v-row class="overline mx-3">
+                                        Published: {{songToFocus.publishedDate | formatDate}}
+                                    </v-row>
+                                </v-col>
+                                <v-col class="px-4 xs12 sm12 md8 lg6 overflow-y-auto" style="max-height: 60vh; min-width: 30%;">
+                                    <v-form v-model="valid">
+                                        <v-col align="end">
+                                            <v-combobox
+                                                    v-model="newArtists"
+                                                    :rules="artistsRules"
+                                                    :items="artists"
+                                                    :item-text="artistDescription"
+                                                    :search-input.sync="searchArtists"
+                                                    label="Artists:"
+                                                    deletable-chips
+                                                    prepend-icon="mdi-artist"
+                                                    multiple
+                                                    rounded
+                                                    :clearable="editSong"
+                                                    :disabled="!editSong"
+                                                    outlined
+                                                    dense
+                                                    persistent-hint
+                                                    small-chips
+                                            >
+                                                <template v-slot:no-data v-if="editSong">
+                                                    <v-list-item>
+                                                        <v-list-item-content>
+                                                            <v-list-item-title>
+                                                                No results matching "<strong>{{ search }}</strong>". Press <kbd>enter</kbd> to create a new one
+                                                            </v-list-item-title>
+                                                        </v-list-item-content>
+                                                    </v-list-item>
+                                                </template>
+                                            </v-combobox>
+                                            <!--                                                <span class="ml-2" v-for="artists in showSongArtists(songToFocus)" :key="artists.id">-->
+                                            <!--                                            {{artists.artistName}}-->
+                                            <!--                                            </span>-->
+                                        </v-col>
+                                        <v-col align="center" class="px-4">
+                                            <h2>Lyrics:</h2>
+                                            <v-textarea
+                                                    outlined
+                                                    placeholder="Put song lyrics here..."
+                                                    full-width
+                                                    auto-grow
+                                                    v-model="songLyrics"
+                                                    prepend-inner-icon="mdi-file-music"
+                                                    rounded
+                                                    label="Song Lyrics"
+                                                    :readonly="!editSong"
+                                                    :clearable="editSong"
+                                                    clear-icon="mdi-close"
 
-                                                >
+                                            >
 
-                                                </v-textarea>
+                                            </v-textarea>
 
-                                            </v-col>
-                                        </v-row>
-                                        </v-form>
-                                    </v-col>
-                                    <v-divider vertical
-                                    ></v-divider>
-                                    <v-col>
-                                        <v-container justify="center" align="center">
-                                            <v-row>
-                                                <v-col align="center">
-                                                    <youtube :video-id="songToFocus.id"></youtube>
-                                                </v-col>
-
-                                            </v-row>
-                                            <v-row>
-                                                <v-col align="end" class="overline mx-3">
-                                                    Published: {{songToFocus.publishedDate | formatDate}}
-                                                </v-col>
-                                            </v-row>
-                                        </v-container>
-
-                                    </v-col>
-                                </v-row>
-
-                            </v-layout>
+                                        </v-col>
+                                    </v-form>
+                                </v-col>
+                            </v-row>
                             <v-row>
                                 <v-alert v-if="dbError" type="error">Something went wrong, could not update song to database.</v-alert>
                             </v-row>
@@ -572,7 +556,7 @@
         color: black;
     }
     .playlistWrapper{
-        height: 90vh;
-        overflow-y:hidden;
+        /*height: 90vh;*/
+        /*overflow-y:hidden;*/
     }
 </style>
